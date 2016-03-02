@@ -1,0 +1,176 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+   xmlns:g="urn:import:com.google.gwt.user.client.ui"
+   xmlns:fhw="urn:import:de.fhwedel.om.widgets"
+   xmlns:dp="urn:import:com.google.gwt.user.datepicker.client">
+   <ui:style>
+   
+   </ui:style>   
+      <g:AbsolutePanel height="1000px" width="1090px">   
+         
+         <!-- Search Kreditvertrag -->
+          
+         <g:at top="0" left="20">
+            <fhw:BOSelectListBox pixelSize="200,370" ui:field="kreditvertrag_searchbox"></fhw:BOSelectListBox>
+         </g:at>
+         <g:at top="400" left="20">
+            <g:Label text="VertragNr:"/>
+         </g:at>
+         <g:at top="390" left="100">
+            <g:TextBox pixelSize="120,20" ui:field="search_kreditvertragnr"/>
+         </g:at>
+         <g:at top="430" left="20">
+            <g:Button pixelSize="200,50" ui:field="search_kreditvertrag">Kreditvertrag Suchen</g:Button>
+         </g:at>
+         
+         
+         <!-- Kreditvertrag information -->
+         
+         <g:at top="0" left="250">
+            <g:Label text="VertragNr:"/>
+         </g:at>
+         <g:at top="0" left="370">
+            <g:TextBox pixelSize="100,15" ui:field="vertragsnummer"/>
+         </g:at>
+         
+         <g:at top="30" left="250">
+            <g:Label text="Erfassungsdatum: "/>
+         </g:at>
+         <g:at top="30" left="370">
+            <dp:DateBox pixelSize="100,15"  ui:field="erfassungsdatum"/>
+         </g:at>
+         
+         <g:at top="60" left="250">
+            <g:Label text="Status:"/>
+         </g:at>
+         <g:at top="60" left="370">
+            <fhw:EnumSelectListBox visibleItemCount="1" pixelSize="100,20" ui:field="status"/>
+         </g:at>
+         
+         <g:at top="90" left="250">
+            <g:Label text="Laufzeit:"/>
+         </g:at>
+         <g:at top="90" left="370">
+            <g:IntegerBox pixelSize="100,20" ui:field="laufzeit_monate"/>
+         </g:at>
+         
+         <g:at top="120" left="250">
+            <g:Label text="Kreditsumme:"/>
+         </g:at>
+         <g:at top="120" left="370">
+            <g:IntegerBox pixelSize="100,20" ui:field="kreditsumme"/>
+         </g:at>
+         
+         <g:at top="150" left="250">
+            <g:Label text="Vertragsbeginn:"/>
+         </g:at>
+         <g:at top="150" left="370">
+            <dp:DateBox pixelSize="100,15" ui:field="vertragsbeginn"/>
+         </g:at>
+         
+         <g:at top="180" left="250">
+            <g:Label text="Tilgungsrate:"/>
+         </g:at>
+         <g:at top="180" left="370">
+            <g:IntegerBox pixelSize="100,20" ui:field="tilgungsrate"/>
+         </g:at>
+         
+         <g:at top="210" left="250">
+            <g:Label text="Zinssatz[in %]:"/>
+         </g:at>
+         <g:at top="210" left="370">
+            <g:IntegerBox pixelSize="100,20" ui:field="zinssatz"/>
+         </g:at>
+         
+         <g:at top="240" left="250">
+            <g:Label text="IBAN:"/>
+         </g:at>
+         <g:at top="240" left="370">
+            <g:TextBox pixelSize="100,15" ui:field="iban"/>
+         </g:at>
+         
+         <g:at top="270" left="250">
+            <g:Label text="BIC:"/>
+         </g:at>
+         <g:at top="270" left="370">
+            <g:TextBox pixelSize="100,15" ui:field="bic"/>
+         </g:at>
+         
+         <g:at top="300" left="250">
+            <g:Label text="Tilgungssumme:"/>
+         </g:at>
+         <g:at top="300" left="370">
+            <g:IntegerBox pixelSize="100,20" ui:field="tilgungssumme">0</g:IntegerBox>
+         </g:at>
+         
+         <g:at top="330" left="250">
+            <g:Label text="Zinssumme:"/>
+         </g:at>
+         <g:at top="330" left="370">
+            <g:IntegerBox pixelSize="100,20" ui:field="zinssumme">0</g:IntegerBox>
+         </g:at>
+         
+         <g:at top="360" left="250">
+            <g:Label text="Restschuld:"/>
+         </g:at>
+         <g:at top="360" left="370">
+            <g:IntegerBox pixelSize="100,20" ui:field="restschuld">0</g:IntegerBox>
+         </g:at>
+        
+        <g:at top="390" left="250">
+            <g:Label text="übrige Monate:"/>
+         </g:at>
+         <g:at top="390" left="370">
+            <g:IntegerBox pixelSize="100,20" ui:field="ubrigevertragsmonate">0</g:IntegerBox>
+         </g:at>
+         
+         <g:at top="420" left="250">
+            <g:Button pixelSize="100,50" ui:field="load_kreditvertrag">Kreditvertrag laden</g:Button>
+         </g:at>
+         
+         <g:at top="420" left="370">
+            <g:Button pixelSize="100,50" ui:field="save_kreditvertrag">Kreditvertrag speichern</g:Button>
+         </g:at>
+         
+         <g:at top="490" left="250">
+            <g:Button pixelSize="100,50" ui:field="oneRate">Rate Abbuchen</g:Button>
+         </g:at>
+         
+         <g:at top="490" left="370">
+            <g:Button pixelSize="100,50" ui:field="allRate">Alle Raten Abbuchen</g:Button>
+         </g:at>
+         
+         
+         
+         <g:at top="543" left="250">
+            <g:Button pixelSize="100,50" ui:field="askforRestschuld">Restschuld Anfordern</g:Button>
+         </g:at>
+         
+         <g:at top="543" left="370">
+            <g:Button pixelSize="100,50" ui:field="takeRestschuld">Restschuld Abbuchen</g:Button>
+         </g:at>
+         
+         
+         <!-- Kreditnehmer Window -->
+         
+         <g:at top="0" left="520">
+            <g:CaptionPanel pixelSize="100,200" captionText="Kunde" ui:field="kreditnehmer"></g:CaptionPanel>
+         </g:at>
+         <g:at top="230" left="555">
+            <g:Button pixelSize="100,50" ui:field="edit_kreditnehmer">Kunden bearbeiten</g:Button>
+         </g:at>         
+
+		 <!-- Kreditvertrag Windows -->
+
+         <g:at top="290" left="520">
+            <fhw:BOSelectListBox pixelSize="200,100" ui:field="zahlung"></fhw:BOSelectListBox>
+         </g:at>
+         <g:at top="400" left="520">
+            <g:Button pixelSize="100,50" ui:field="create_zahlung">Zahlung anlegen</g:Button>
+         </g:at>
+         <g:at top="400" left="620">
+            <g:Button pixelSize="100,50" ui:field="edit_zahlung">Zahlung bearbeiten</g:Button>
+         </g:at>        
+         
+      </g:AbsolutePanel>      
+</ui:UiBinder> 

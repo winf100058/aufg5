@@ -1,0 +1,54 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+   xmlns:g="urn:import:com.google.gwt.user.client.ui"
+   xmlns:fhw="urn:import:de.fhwedel.om.widgets"
+   xmlns:dp="urn:import:com.google.gwt.user.datepicker.client">
+   <ui:style>
+   
+   </ui:style>   
+      <g:AbsolutePanel height="600px" width="800px">
+      
+         <!-- Kreditnehmer Window 
+         
+         <g:at top="0" left="270">
+            <g:CaptionPanel pixelSize="550,500" captionText="Kreditvertrag" ui:field="kreditvertrag"></g:CaptionPanel>
+         </g:at>
+         
+         -->
+         
+         <!-- Information Selbstauskunft -->
+         
+         <g:at top="0" left="20">
+            <g:Label text="Zahlungs Typ:"/>
+         </g:at>
+         <g:at top="0" left="120">
+            <fhw:EnumSelectListBox visibleItemCount="1" pixelSize="150,20" ui:field="typ"/>
+         </g:at> 
+         
+         <g:at top="30" left="20">
+            <g:Label text="Zahlungsdatum:"/>
+         </g:at>
+         <g:at top="30" left="120">
+            <dp:DateBox pixelSize="150,20" ui:field="zahlungsdatum"/>
+         </g:at>
+         
+         <g:at top="70" left="20">
+            <g:Label text="Zahlungsbetrag:"/>
+         </g:at>
+         <g:at top="70" left="120">
+            <g:IntegerBox pixelSize="150,20" ui:field="zahlungsbetrag"/>
+         </g:at> 
+         
+          
+         <!-- Positionsbezogene Buttons (Speichern, Abbrechen) -->
+         
+         <g:at top="100" left="20">
+            <g:Button pixelSize="100,50" ui:field="save_zahlung">Zahlung speichern</g:Button>
+         </g:at>
+         <g:at top="100" left="125">
+            <g:Button pixelSize="100,50" ui:field="cancel">Abbruch</g:Button>
+         </g:at>
+         
+         
+      </g:AbsolutePanel>      
+</ui:UiBinder> 

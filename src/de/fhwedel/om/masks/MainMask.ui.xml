@@ -1,0 +1,23 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:fhw="urn:import:de.fhwedel.om.widgets">
+	<ui:style>
+	
+	</ui:style>
+	<g:HTMLPanel>
+		<g:AbsolutePanel height="800px">
+			<g:at top="0" left="0">
+				<g:Button ui:field="kreditnehmer" text="Kreditnehmer"/>
+			</g:at>
+            <g:at top="0" left="100">
+                <g:Button visible="false" ui:field="back" text="Zurück"/>
+            </g:at>
+            <g:at top="0" left="200">
+                <g:Label ui:field="history_label"/>
+            </g:at>
+			<g:at top="50" left="0">
+				<g:FlowPanel width="600px" height="500px" ui:field="content"/>
+			</g:at>
+		</g:AbsolutePanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

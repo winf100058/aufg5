@@ -1,0 +1,3 @@
+# Module ordermanagement
+# RPC service class, partial path of RPC policy file
+de.fhwedel.om.services.OMService, D4B0C3E35B0C38E2EE78E30D01C12E53.gwt.rpc

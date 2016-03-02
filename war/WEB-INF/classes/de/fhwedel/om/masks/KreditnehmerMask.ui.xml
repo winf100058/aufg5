@@ -1,0 +1,119 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+   xmlns:g="urn:import:com.google.gwt.user.client.ui"
+   xmlns:fhw="urn:import:de.fhwedel.om.widgets">
+   <ui:style>
+   
+   </ui:style>   
+      <g:AbsolutePanel height="600px" width="800px" ui:field="aPanel">   
+         
+         <!-- Search Kreditnehmer -->
+          
+	         <g:at top="0" left="20">
+	            <fhw:BOSelectListBox pixelSize="200,150" ui:field="kreditnehmer_searchbox"></fhw:BOSelectListBox>
+	         </g:at>
+	         <g:at top="210" left="20">
+	            <g:Label text="Name:" ui:field="name_label"/>
+	         </g:at>
+	         <g:at top="210" left="100">
+	            <g:TextBox pixelSize="100,20" ui:field="search_name"/>
+	         </g:at>
+	         <g:at top="270" left="20">
+	            <g:Label text="Vorname:" ui:field="vorname_label"/>
+	         </g:at>
+	         <g:at top="270" left="100">
+	            <g:TextBox pixelSize="100,20" ui:field="search_vorname"/>
+	         </g:at>
+	         <g:at top="330" left="20">
+	            <g:Label text="KundenNr:" ui:field="kundennr_label"/>
+	         </g:at>
+	         <g:at top="330" left="100">
+	            <g:TextBox pixelSize="100,20" ui:field="search_kundennr"/>
+	         </g:at>
+	         <g:at top="390" left="20">
+	            <g:Button pixelSize="200,50" ui:field="search_kreditnehmer">Kreditnehmer Suchen</g:Button>
+	         </g:at>
+         
+         
+         <!-- Kreditnehmer information -->
+         
+         <g:at top="0" left="250">
+            <g:Label text="KundenNr:"/>
+         </g:at>
+         <g:at top="0" left="320">
+            <g:TextBox pixelSize="150,20" ui:field="kundennr"/>
+         </g:at>
+         
+         <g:at top="30" left="250">
+            <g:Label text="Name:"/>
+         </g:at>
+         <g:at top="30" left="320">
+            <g:TextBox pixelSize="150,20" ui:field="name"/>
+         </g:at>
+         
+         <g:at top="60" left="250">
+            <g:Label text="Vorname:"/>
+         </g:at>
+         <g:at top="60" left="320">
+            <g:TextBox pixelSize="150,20" ui:field="vorname"/>
+         </g:at>
+         
+         <g:at top="90" left="250">
+            <g:Label text="Straße:"/>
+         </g:at>
+         <g:at top="90" left="320">
+            <g:TextBox pixelSize="150,20" ui:field="strasse"/>
+         </g:at>
+         
+         <g:at top="120" left="250">
+            <g:Label text="PLZ:"/>
+         </g:at>
+         <g:at top="120" left="320">
+            <g:TextBox pixelSize="150,20" ui:field="plz"/>
+         </g:at>
+         
+         <g:at top="150" left="250">
+            <g:Label text="Ort:"/>
+         </g:at>
+         <g:at top="150" left="320">
+            <g:TextBox pixelSize="150,20" ui:field="ort"/>
+         </g:at>
+         
+         <g:at top="210" left="295">
+            <g:Button pixelSize="150,50" ui:field="load_kreditnehmer">Kreditnehmer laden</g:Button>
+         </g:at>
+         
+         <g:at top="270" left="295">
+            <g:Button pixelSize="150,50" ui:field="save_kreditnehmer">Kreditnehmer speichern</g:Button>
+         </g:at>
+         
+         <g:at top="330" left="295">
+            <g:Button pixelSize="150,50" ui:field="new_kreditnehmer">Kreditnehmer anlegen</g:Button>
+         </g:at>
+         
+         <!-- Selbstauskunft Window -->
+         
+         <g:at top="0" left="520">
+            <fhw:BOSelectListBox pixelSize="200,100" ui:field="selbstauskunft"></fhw:BOSelectListBox>
+         </g:at>
+         <g:at top="110" left="520">
+            <g:Button pixelSize="100,50" ui:field="create_selbstauskunft">Selbstauskunft anlegen</g:Button>
+         </g:at>
+         <g:at top="110" left="620">
+            <g:Button pixelSize="100,50" ui:field="edit_selbstauskunft">Selbstauskunft bearbeiten</g:Button>
+         </g:at>         
+
+		 <!-- Kreditvertrag Windows -->
+
+         <g:at top="200" left="520">
+            <fhw:BOSelectListBox pixelSize="200,100" ui:field="kreditvertrag"></fhw:BOSelectListBox>
+         </g:at>
+         <g:at top="310" left="520">
+            <g:Button pixelSize="100,50" ui:field="create_kreditvertrag">Kreditvertrag anlegen</g:Button>
+         </g:at>
+         <g:at top="310" left="620">
+            <g:Button pixelSize="100,50" ui:field="edit_kreditvertrage">Kreditvertrag bearbeiten</g:Button>
+         </g:at>        
+         
+      </g:AbsolutePanel>      
+</ui:UiBinder> 

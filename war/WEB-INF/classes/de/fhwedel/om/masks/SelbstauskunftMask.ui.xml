@@ -1,0 +1,92 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+   xmlns:g="urn:import:com.google.gwt.user.client.ui"
+   xmlns:fhw="urn:import:de.fhwedel.om.widgets"
+   xmlns:dp="urn:import:com.google.gwt.user.datepicker.client">
+   <ui:style>
+   
+   </ui:style>   
+      <g:AbsolutePanel height="600px" width="800px">
+      
+         <!-- Kreditnehmer Window -->
+         
+         <g:at top="0" left="270">
+            <g:CaptionPanel pixelSize="200,300" captionText="Kreditnehmer" ui:field="kreditnehmer"></g:CaptionPanel>
+         </g:at>
+         
+         <!-- Information Selbstauskunft -->
+         
+         <g:at top="0" left="20">
+            <g:Label text="Erfassung Datum:"/>
+         </g:at>
+         <g:at top="0" left="150">
+            <dp:DateBox pixelSize="100,20" ui:field="erfassungsdatum"/>
+         </g:at>
+         
+         <g:at top="30" left="20">
+            <g:Label text="Beruf:"/>
+         </g:at>
+         <g:at top="30" left="150">
+            <g:TextBox pixelSize="100,15" ui:field="beruf"/>
+         </g:at>
+         
+         <g:at top="60" left="20">
+            <g:Label text="Beschäftigungsart:"/>
+         </g:at>
+         <g:at top="60" left="150">
+            <fhw:EnumSelectListBox visibleItemCount="1" pixelSize="100,20" ui:field="beschaftigungsart"/>
+         </g:at> 
+         
+         <g:at top="90" left="20">
+            <g:Label text="Befristet:"/>
+         </g:at>
+         <g:at top="90" left="150">
+            <g:CheckBox pixelSize="100,20" ui:field="befristet"/>
+         </g:at>
+         
+         <g:at top="120" left="20">
+            <g:Label text="Beschäftigt seit:"/>
+         </g:at>
+         <g:at top="120" left="150">
+            <dp:DateBox pixelSize="100,15" ui:field="beschaftigt_seit"/>
+         </g:at>
+         
+         <g:at top="150" left="20">
+            <g:Label text="Jahresnetto:"/>
+         </g:at>
+         <g:at top="150" left="150">
+            <g:IntegerBox pixelSize="100,20" ui:field="jahresnetto"/>
+         </g:at>
+         
+         <g:at top="180" left="20">
+            <g:Label text="Einstufungsdatum:"/>
+         </g:at>
+         <g:at top="180" left="150">
+            <dp:DateBox pixelSize="100,15" ui:field="einstufungsdatum"/>
+         </g:at>
+         
+         <g:at top="210" left="20">
+            <g:Label text="Bonität:"/>
+         </g:at>
+         <g:at top="210" left="150">
+            <g:IntegerBox pixelSize="100,20" ui:field="bonitatsindex"/>
+         </g:at>
+         
+         <g:at top="240" left="20">
+            <g:Label text="Max. Kreditsumme:"/>
+         </g:at>
+         <g:at top="240" left="150">
+            <g:IntegerBox pixelSize="100,20" ui:field="maximale_kreditsumme"/>
+         </g:at>
+          
+         <!-- Positionsbezogene Buttons (Speichern, Abbrechen) -->
+         
+         <g:at top="270" left="150">
+            <g:Button pixelSize="100,50" ui:field="save_selbstauskunft">Selbstauskunft speichern</g:Button>
+         </g:at>
+         <g:at top="270" left="20">
+            <g:Button pixelSize="100,50" ui:field="cancel">Abbruch</g:Button>
+         </g:at>
+         
+      </g:AbsolutePanel>      
+</ui:UiBinder> 
