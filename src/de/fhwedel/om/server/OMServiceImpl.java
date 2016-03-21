@@ -67,11 +67,11 @@ implements OMService {
          em.getTransaction().begin();
          // TODO: Hier 5 Beispiel Konditionen erstellen
          long milisec = 14516028 * 100000;
-         em.persist(new Kondition(1, 12, 1000, 2000, 100,200, new Date(milisec), 500));
-         em.persist(new Kondition(1, 24, 3000, 4000, 100,300, new Date(milisec), 400));
-         em.persist(new Kondition(1, 36, 5000, 6000, 100,400, new Date(milisec), 300));
-         em.persist(new Kondition(1, 48, 7000, 8000, 100,500, new Date(milisec), 200));
-         em.persist(new Kondition(1, 60, 9000, 10000, 100,600, new Date(milisec), 100));
+         em.persist(new Kondition(1, 12, 1000, 2000, 100,200, new Date(milisec),new Date(milisec), 500));
+         em.persist(new Kondition(1, 24, 3000, 4000, 100,300, new Date(milisec), new Date(milisec), 400));
+         em.persist(new Kondition(1, 36, 5000, 6000, 100,400, new Date(milisec), new Date(milisec), 300));
+         em.persist(new Kondition(1, 48, 7000, 8000, 100,500, new Date(milisec),new Date(milisec), 200));
+         em.persist(new Kondition(1, 60, 9000, 10000, 100,600, new Date(milisec),  new Date(milisec), 100));
          em.getTransaction().commit();
       }      
    }

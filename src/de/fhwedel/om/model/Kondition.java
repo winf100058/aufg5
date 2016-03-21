@@ -36,16 +36,19 @@ public class Kondition implements BusinessObject<Integer> {
 
 	@Temporal(TemporalType.DATE)
 	private Date gultig_von;
+	
+	@Temporal(TemporalType.DATE)
+	private Date gultig_bis;
 
 	private int zinssatz;
 
 	public Kondition() {
-		this(0, 0, 0, 0, 100, 100, null, 0);
+		this(0, 0, 0, 0, 100, 100, null, null, 0);
 	}
 
 	public Kondition(int laufzeit_monate_von, int laufzeit_monate_bis,
 			int kreditsumme_von, int kreditsumme_bis, int bonitatsindex_von,
-			int bonitatsindex_bis, Date gultig_von, int zinssatz) {
+			int bonitatsindex_bis, Date gultig_von, Date gultig_bis, int zinssatz) {
 		this.laufzeit_monate_von = laufzeit_monate_von;
 		this.laufzeit_monate_bis = laufzeit_monate_bis;
 		this.kreditsumme_von = kreditsumme_von;
@@ -53,6 +56,7 @@ public class Kondition implements BusinessObject<Integer> {
 		this.bonitatsindex_von = bonitatsindex_von;
 		this.bonitatsindex_bis = bonitatsindex_bis;
 		this.gultig_von = gultig_von;
+		this.gultig_bis = gultig_bis;
 		this.zinssatz = zinssatz;
 	}
 
