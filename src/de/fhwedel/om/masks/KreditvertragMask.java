@@ -133,6 +133,10 @@ public class KreditvertragMask extends BusinessMask<Kreditvertrag> implements
 		refreshKreditvertrag();
 		refreshFields();
 		this.vertragsnummer.setReadOnly(true);
+		this.tilgungssumme.setReadOnly(true);
+		this.zinssumme.setReadOnly(true);
+		this.restschuld.setReadOnly(true);
+		this.ubrigevertragsmonate.setReadOnly(true);
 		this.editorDriver.edit(o);
 	}
 
