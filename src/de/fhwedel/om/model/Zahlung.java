@@ -110,7 +110,7 @@ public class Zahlung implements BusinessObject<Integer> {
 
 	@Override
 	public String getCaption() {
-		return "Zahlung"; // "[Auftrag " + this.getOrderCaption() + "]";
+		return "Zahlung Nr. " + this.getID().toString(); // "[Auftrag " + this.getOrderCaption() + "]";
 	}
 
 }

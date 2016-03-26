@@ -18,7 +18,7 @@ Anwendungsfunktion:
  
 Anwendungsgestaltung:
  [X] In konstante Felder (z.B. Restschuld) können unsinnigerweise Werte eingetragen werden.
- [ ] Außerdem: Listenanzeige zu Zahlungen wenig aussagekräftig, da steht jeweils einfach nur "Zahlung". 
+ [X] Außerdem: Listenanzeige zu Zahlungen wenig aussagekräftig, da steht jeweils einfach nur "Zahlung". 
  [ ] Außerdem: Die Steuerung des Vertragsstatus ist nicht gelungen. 
 	 So etwa böte sich für die Ausfertigung des Vertrages einfach ein entsprechender Button an bzw. generell zustandsspezifische Buttons zur Ausführung eines anschließenden Prozessschrittes
 	 ("Vertrag ausfertigen", "Ablehnen wegen ...", "Kredit ausbezahlen"). 
