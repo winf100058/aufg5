@@ -219,12 +219,12 @@ public class Selbstauskunft implements BusinessObject<Integer> {
 		}
 		
 		netto=getJahresnetto();
-		if (isBetween(netto, 0, 10000)){netto_index=1;}
-		else if (isBetween(netto, 10001, 20000)){netto_index=2;}
-		else if (isBetween(netto, 20001, 30000)){netto_index=3;}
-		else if (isBetween(netto, 30001, 40000)){netto_index=4;}
-		else if (isBetween(netto, 40001, 50000)){netto_index=5;}
-		else {netto_index=6;}
+		if (isBetween(netto, 0, 10000)){netto_index=6;}
+		else if (isBetween(netto, 10001, 20000)){netto_index=5;}
+		else if (isBetween(netto, 20001, 30000)){netto_index=4;}
+		else if (isBetween(netto, 30001, 40000)){netto_index=3;}
+		else if (isBetween(netto, 40001, 50000)){netto_index=2;}
+		else {netto_index=1;}
 		
 		Double bonitaet=seit_index * 0.25 + befristet_index * 0.25 + besch_index * 0.25 + netto_index + 0.25;
 		if(bonitaet.intValue() >= 6) {
