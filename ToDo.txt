@@ -2,25 +2,33 @@ BO-Klassen:
  [X] "gültig bis" bei Konditionen nicht zu erkennen.
  
 Datenhaltungsservice:
- [ ] An einigen Stellen Synchronisationsprobleme: z.B.verschwinden manchmal alle Verträge/Selbstauskünfte, 
+ [X] An einigen Stellen Synchronisationsprobleme: z.B.verschwinden manchmal alle Verträge/Selbstauskünfte, 
      nach einem Refresh erscheint zumindest wieder die Selbstauskunft.
      Hier ist konsequenteres Testen unter Durchführung des gesamten Prozesses für einen Kreditvertrag vom Anlegen bis zum Status Abgeschlossen erforderlich.
    
 Anwendungsfunktion:
  [X] Bonitätsindex offenbar genau falsch herum definiert (schlechtere Faktoren wie z.B. niedrigeres Gehalt müssten den Index erhöhen und nicht senken - der beste Wert ist 100). 
- [ ] Außerdem: Initiale Zinsermittlung auf Basis Bonität 100 nicht zu erkennen. 
-     In einem Fall wurde ausgehend von den Konditionen ein unpassender Zinssatz ermittelt (offenbar, wenn bereits eine Selbstauskunft existiert!?), der nicht zur Kreditsumme passte.
- [ ] Außerdem: Direkt nach dem Speichern erschien in einem Fall eine nicht nachvollziehbare Zinssumme (offenbar ebenfalls, wenn bereits eine Selbstauskunft beim ersten Speichern existiert).
- [ ] Außerdem: Die Auszahlung erfordert offenbar manuelle Eingriffe (wie z.B. die Eingabe des Betrages), der Status des Vertrags ändert sich dabei nicht. 
- [ ] Außerdem: Bei der Restschuld bzw. der Tilgungssumme werden offenbar auch die Zinsen als Tilgung behandelt. Die Zinssumme lässt keinen nachvollziehbaren Wert erkennen. 
- [ ] Außerdem: Offenbar keinerlei Kontrolle des Betrages bei Sondertilgungen. Außerdem: Das Durchführen aller Ratenzahlungen führt offenbar zu einer Endlosschleife. 
- [ ] Außerdem: Nach dem Abbuchen der Restschuld stellt sich kein Effekt ein (bzgl. Restschuld, Vertragsstatus, usw.), außer dass eine entsprechende Zahlung (obendrein ohne Datum)
+ [?] Außerdem: Initiale Zinsermittlung auf Basis Bonität 100 nicht zu erkennen. 
+     In einem Fall wurde ausgehend von den Konditionen ein unpassender Zinssatz ermittelt 
+	 (offenbar, wenn bereits eine Selbstauskunft existiert!?), der nicht zur Kreditsumme passte.
+ [ ] Außerdem: Direkt nach dem Speichern erschien in einem Fall eine nicht nachvollziehbare Zinssumme 
+     (offenbar ebenfalls, wenn bereits eine Selbstauskunft beim ersten Speichern existiert).
+ [?] Außerdem: Die Auszahlung erfordert offenbar manuelle Eingriffe (wie z.B. die Eingabe des Betrages), 
+     der Status des Vertrags ändert sich dabei nicht. 
+ [?] Außerdem: Bei der Restschuld bzw. der Tilgungssumme werden offenbar auch die Zinsen als Tilgung behandelt. 
+     Die Zinssumme lässt keinen nachvollziehbaren Wert erkennen. 
+ [?] Außerdem: Offenbar keinerlei Kontrolle des Betrages bei Sondertilgungen. 
+ [ ] Außerdem: Das Durchführen aller Ratenzahlungen führt offenbar zu einer Endlosschleife. 
+ [?] Außerdem: Nach dem Abbuchen der Restschuld stellt sich kein Effekt ein (bzgl. Restschuld, Vertragsstatus, usw.), außer dass eine entsprechende Zahlung (obendrein ohne Datum)
  
 Anwendungsgestaltung:
  [X] In konstante Felder (z.B. Restschuld) können unsinnigerweise Werte eingetragen werden.
  [X] Außerdem: Listenanzeige zu Zahlungen wenig aussagekräftig, da steht jeweils einfach nur "Zahlung". 
- [ ] Außerdem: Die Steuerung des Vertragsstatus ist nicht gelungen. 
-	 So etwa böte sich für die Ausfertigung des Vertrages einfach ein entsprechender Button an bzw. generell zustandsspezifische Buttons zur Ausführung eines anschließenden Prozessschrittes
+ [?] Außerdem: Die Steuerung des Vertragsstatus ist nicht gelungen. 
+	 So etwa böte sich für die Ausfertigung des Vertrages einfach ein entsprechender Button an 
+	 bzw. generell zustandsspezifische Buttons zur Ausführung eines anschließenden Prozessschrittes
 	 ("Vertrag ausfertigen", "Ablehnen wegen ...", "Kredit ausbezahlen"). 
-	 Soweit tatsächlich regelmäßig das manuelle Ändern des Status vorgesehen ist, sollten Statusänderungen, die zu inkonsistenten Zuständen führen 
+	 
+	 Soweit tatsächlich regelmäßig das manuelle Ändern des Status vorgesehen ist, sollten Statusänderungen, 
+	 die zu inkonsistenten Zuständen führen 
 	 (z.B. von Ausgezahlt zurück zu Ausgefertigt o.ä.) entweder verhindert oder mit Warnungen versehen werden.
