@@ -139,6 +139,7 @@ public class KreditvertragMask extends BusinessMask<Kreditvertrag> implements
 
 	public void setBO(Kreditvertrag o) {
 		super.setBO(o);
+		Window.alert("setBo");
 		this.kreditnehmer.clear();
 		this.kreditnehmer.add(new KreditnehmerMask(this.getBO()
 				.getKreditnehmer(), true));
@@ -154,6 +155,7 @@ public class KreditvertragMask extends BusinessMask<Kreditvertrag> implements
 		this.ubrigevertragsmonate.setReadOnly(true);
 		this.editorDriver.edit(o);
 		setVisibilities();
+		//setZinsSatz();
 	}
 
 	@Override
@@ -223,6 +225,9 @@ public class KreditvertragMask extends BusinessMask<Kreditvertrag> implements
 		int rest = 0;
 		int monat = 0;
 		int tilg = 0;
+
+		// Durch das Teilen steht da immer ein Satz von 0 Prozent
+		// ist das so geplant?
 		this.zinssatz.setValue(this.getBO().getZinssatz() / 100);
 		if (this.getBO().getZahlung() != null) {
 			zinssum = this.getBO().getKreditsumme()
@@ -352,6 +357,8 @@ public class KreditvertragMask extends BusinessMask<Kreditvertrag> implements
 		Zahlung new_pos = new Zahlung(this.getBO(), null,
 				this.restschuld.getValue(), Zahlungstyp.Ablosung);
 		this.getBO().getZahlung().add(new_pos);
+		this.status.setSelectedIndex(6);
+		this.restschuld.setValue(0);
 		this.setBO(this.getBO());
 	}
 
@@ -518,5 +525,20 @@ public class KreditvertragMask extends BusinessMask<Kreditvertrag> implements
 			break;
 		}
 	}
+	
+	private void setZinsSatz(){
+		Integer bon_index = this.getBO().getKreditnehmer().getSelbstauskunft().getBonitatsindex();
+		Window.alert(bon_index.toString());
+		if (isBetween(bon_index, 100, 200)){this.getBO().setZinssatz(1); zinssatz.setValue(1);}
+		else if (isBetween(bon_index, 200, 300)){this.getBO().setZinssatz(2);zinssatz.setValue(2);}
+		else if (isBetween(bon_index, 300, 400)){this.getBO().setZinssatz(3);zinssatz.setValue(3);}
+		else if (isBetween(bon_index, 400, 500)){this.getBO().setZinssatz(4);zinssatz.setValue(4);}
+		else if (isBetween(bon_index, 500, 600)){this.getBO().setZinssatz(5);zinssatz.setValue(5);}
+		else {this.getBO().setZinssatz(1);zinssatz.setValue(1);}		
+	}
+	
+	public static boolean isBetween(int x, int lower, int upper) {
+		  return lower <= x && x <= upper;
+		}
 
 }
