@@ -1,5 +1,6 @@
 package de.fhwedel.om.masks;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -113,6 +114,20 @@ public class KreditvertragMask extends BusinessMask<Kreditvertrag> implements
 	@Ignore
 	@UiField
 	TextBox search_kreditvertragnr;
+	
+	//Stati
+	@UiField
+	Button status_ausfertigen;
+	@UiField
+	Button status_ausgezahlt;
+	@UiField
+	Button status_widerruf;
+	@UiField
+	Button status_abgeschlossen;
+	@UiField
+	Button status_abgelehnt_Bonitaet;
+	@UiField
+	Button status_abgelehnt_Fristablauf;
 
 	public KreditvertragMask(Kreditvertrag o) {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -138,10 +153,12 @@ public class KreditvertragMask extends BusinessMask<Kreditvertrag> implements
 		this.restschuld.setReadOnly(true);
 		this.ubrigevertragsmonate.setReadOnly(true);
 		this.editorDriver.edit(o);
+		setVisibilities();
 	}
 
 	@Override
 	protected void saveBO() {
+		Window.alert("saveBO");
 		if (this.zinssatz.getValue() < 100) {
 			this.zinssatz.setValue(this.zinssatz.getValue() * 100);
 		}
@@ -376,6 +393,130 @@ public class KreditvertragMask extends BusinessMask<Kreditvertrag> implements
 		dialog.setPixelSize(800, 400);
 		dialog.center();
 		dialog.show();
+	}
+	
+	// Stati
+	@UiHandler("status_ausfertigen")
+	protected void onstatus_ausfertigenClick(ClickEvent event) {
+		if (this.isCreditValid()) {
+			this.status.setSelectedIndex(3);
+			this.saveBO();
+			Window.alert("Kredit ausgefertigt.");
+		}
+		else {
+			Window.alert("Bitte Angaben überprüfen.");
+		}
+		setVisibilities();
+	}
+	
+	@UiHandler("status_ausgezahlt")
+	protected void onstatus_ausgezahltClick(ClickEvent event) {
+		   this.status.setSelectedIndex(4);
+		   this.saveBO();
+		   Window.alert("Ueberweisung der Kreditsumme an Kundenbank.");
+		   Zahlung new_payment = new Zahlung();
+		   new_payment.setKreditvertrag(this.getBO()); 
+		   new_payment.setZahlungsbetrag(this.getBO().getKreditsumme());
+		   new_payment.setTyp(Zahlungstyp.Auszahlung);
+		   new_payment.setZahlungsdatum(new Date(System.currentTimeMillis()));
+		   this.getFlowControl().forward( new ZahlungMask(new_payment) );
+		   setVisibilities();
+	}
+	
+	@UiHandler("status_widerruf")
+	protected void onstatus_widerrufClick(ClickEvent event) {
+        this.status.setSelectedIndex(5);
+        this.saveBO();
+        Window.alert("Kredit widerrufen");
+        setVisibilities();
+	}
+	
+	@UiHandler("status_abgeschlossen")
+	protected void onstatus_abgeschlossenClick(ClickEvent event) {
+		if (this.restschuld.getValue() == 0){
+			this.status.setSelectedIndex(6);
+			this.saveBO();
+			Window.alert("Kunde über Vertragsende informieren");
+		} else {
+			this.takeRestschuld.setVisible(true);
+			Window.alert("Kunde auffordern Restschuld zu überweisen");
+		}
+		setVisibilities();
+	}
+	
+	@UiHandler("status_abgelehnt_Bonitaet")
+	protected void onStatus_abgelehnt_BonitaetClick(ClickEvent event) {
+		if (this.getBO().getKreditnehmer().getSelbstauskunft().getBonitatsindex() >= 100) {
+		  Window.alert("Absage wegen Bonitaet an Kunden versenden.");}
+		else {
+		  Window.alert("Bonitaet des Kunden ausreichend.");	
+		}
+		setVisibilities();
+	}
+	
+	@UiHandler("status_abgelehnt_Fristablauf")
+	protected void onstatus_abgelehnt_FristablaufClick(ClickEvent event) {
+		   this.status.setSelectedIndex(2);
+		   this.saveBO();
+		   Window.alert("Absage wegen Fristablauf an Kunden versenden."); 
+		   setVisibilities();
+	}
+	
+	private boolean isCreditValid(){
+		boolean result;
+		result = this.laufzeit_monate.getValue() != 0;
+		result = result && this.kreditsumme.getValue() != 0;
+		result = result && this.tilgungsrate.getValue() !=0;
+		result = result && this.bic.getValue() != "";
+		result = result && this.iban.getValue() != "";
+		return result;
+	}
+    
+	private void setVisibilities(){
+		switch(this.getBO().getStatus().toString()){
+		case "Angebot":
+			this.status_abgelehnt_Bonitaet.setVisible(true);
+			this.status_abgelehnt_Fristablauf.setVisible(true);
+			this.status_abgeschlossen.setVisible(false);
+			this.status_ausfertigen.setVisible(true);
+			this.status_ausgezahlt.setVisible(false);
+			this.status_widerruf.setVisible(false);
+			break;
+		case "Abgelehnt wegen Bonitaet":
+		case "Abgelehnt wegen Fristablauf":
+			this.status_abgelehnt_Bonitaet.setVisible(false);
+			this.status_abgelehnt_Fristablauf.setVisible(false);
+			this.status_abgeschlossen.setVisible(false);
+			this.status_ausfertigen.setVisible(false);
+			this.status_ausgezahlt.setVisible(false);
+			this.status_widerruf.setVisible(false);
+			break;
+		case "Ausgefertigt":
+			this.status_abgelehnt_Bonitaet.setVisible(false);
+			this.status_abgelehnt_Fristablauf.setVisible(false);
+			this.status_abgeschlossen.setVisible(false);
+			this.status_ausfertigen.setVisible(false);
+			this.status_ausgezahlt.setVisible(true);
+			this.status_widerruf.setVisible(true);
+			break;
+		case "Ausgezahlt":
+			this.status_abgelehnt_Bonitaet.setVisible(false);
+			this.status_abgelehnt_Fristablauf.setVisible(false);
+			this.status_abgeschlossen.setVisible(true);
+			this.status_ausfertigen.setVisible(false);
+			this.status_ausgezahlt.setVisible(false);
+			this.status_widerruf.setVisible(false);
+			break;
+		case "Widerruf":
+		case "Abgeschlossen":
+			this.status_abgelehnt_Bonitaet.setVisible(false);
+			this.status_abgelehnt_Fristablauf.setVisible(false);
+			this.status_abgeschlossen.setVisible(false);
+			this.status_ausfertigen.setVisible(false);
+			this.status_ausgezahlt.setVisible(false);
+			this.status_widerruf.setVisible(false);
+			break;
+		}
 	}
 
 }

@@ -150,6 +150,31 @@
             <g:Button pixelSize="100,50" ui:field="takeRestschuld">Restschuld Abbuchen</g:Button>
          </g:at>
          
+         <!-- Kreditstatus Button -->
+         
+         <g:at top="593" left="250">
+            <g:Button pixelSize="100,50" ui:field="status_ausfertigen">Ausfertigen</g:Button>
+         </g:at>
+         
+         <g:at top="593" left="370">
+            <g:Button pixelSize="100,50" ui:field="status_ausgezahlt">Auszahlen</g:Button>
+         </g:at>
+         
+         <g:at top="593" left="490">
+            <g:Button pixelSize="100,50" ui:field="status_widerruf">Widerruf</g:Button>
+         </g:at>
+         
+         <g:at top="593" left="610">
+            <g:Button pixelSize="100,50" ui:field="status_abgeschlossen">Abgeschlossen</g:Button>
+         </g:at> 
+         
+         <g:at top="593" left="730">
+            <g:Button pixelSize="100,50" ui:field="status_abgelehnt_Bonitaet">Abgelehnt Bonität</g:Button>
+         </g:at> 
+         
+         <g:at top="593" left="850">
+            <g:Button pixelSize="100,50" ui:field="status_abgelehnt_Fristablauf">Abgelehnt Fristablauf</g:Button>
+         </g:at>  
          
          <!-- Kreditnehmer Window -->
          
