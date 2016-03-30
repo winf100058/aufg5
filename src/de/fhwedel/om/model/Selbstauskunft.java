@@ -68,7 +68,7 @@ public class Selbstauskunft implements BusinessObject<Integer> {
 	private Kreditnehmer kreditnehmer;
 
 	public Selbstauskunft() {
-		this(null, "<neu>", false, null, 0, null, 0, 0);
+		this(null, "<neu>", false, null, 0, null, 100, 0);
 	}
 
 	public Selbstauskunft(Date erfassungsdatum, String beruf,
