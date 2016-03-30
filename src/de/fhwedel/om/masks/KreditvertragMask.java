@@ -238,9 +238,13 @@ public class KreditvertragMask extends BusinessMask<Kreditvertrag> implements
 			for (int i = 0; i < this.getBO().getZahlung().size(); i++) {
 				if (this.getBO().getZahlung().get(i).getTyp() == Zahlungstyp.Rate
 						|| this.getBO().getZahlung().get(i).getTyp() == Zahlungstyp.Sondertilgung) {
+					if (this.getBO().getZahlung().get(i)
+							.getZahlungsbetrag() - zinssum <= rest){
 					tilg = tilg
 							+ this.getBO().getZahlung().get(i)
-									.getZahlungsbetrag();
+									.getZahlungsbetrag() - zinssum;
+					}
+					else { tilg = rest;}
 				}
 			}
 			this.tilgungssumme.setValue(tilg);
